@@ -10,6 +10,7 @@ from scripts.preprocess import load_and_clean
 app = Flask(__name__)
 CORS(app)   # allow requests from frontend (localhost:3000)
 
+
 def build_graph(df):
     """
     Build a directed NetworkX graph from DataFrame rows.
@@ -173,7 +174,7 @@ def find_balanced_path(G, src, dst, alpha=0.6, transfer_penalty=50.0, transfer_p
             dur_n = duration / max_duration if max_duration > 0 else 0.0
             combined = alpha * cost_n + (1.0 - alpha) * dur_n
             # add a small per-edge penalty to discourage many hops (scaled to combined space)
-            w = combined + (transfer_penalty / (max_cost if max_cost>0 else 1.0))  # normalized penalty
+            w = combined + (transfer_penalty / (max_cost if max_cost > 0 else 1.0))  # normalized penalty
             H.add_edge(u, v, w=w, **data)
 
         path = nx.shortest_path(H, source=src, target=dst, weight='w')
@@ -205,6 +206,10 @@ except Exception as e:
     print("!!! Failed to load dataset or build graph:", e, file=sys.stdout)
     traceback.print_exc(file=sys.stdout)
     G = nx.DiGraph()  # empty graph to avoid crashes
+
+@app.route("/")
+def home():
+    return "✅ Travel Planner Backend is Live!"
 
 @app.route("/route")
 def route():
