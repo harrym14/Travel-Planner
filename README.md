@@ -2,9 +2,8 @@
 
 A full-stack travel planning web application that helps users find the **most cost-effective, fastest, or balanced routes** between Indian cities using **graph algorithms**, real transport data, and interactive map visualization.
 
-🔗 **Live Demo (Frontend):** https://travelplanner.netlify.app  
-🔗 **Backend API:** https://travel-planner-backend-7mav.onrender.com  
-🔗 **GitHub Repository:** https://github.com/harrym14/Travel-Planner  
+🔗 **Live Demo:** https://trawelplanner.netlify.app/  
+🔗 **GitHub Repository:** https://github.com/harrym14/Travel-Planner 
 
 ---
 
